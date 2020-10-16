@@ -43,9 +43,14 @@ class App extends Component {
     axios.post('https://jsonplaceholder.typicode.com/todos', {
       title,
       completed: false
-    }).then(res => this.setState({
-      todos: [...this.state.todos, res.data]
-    }))
+    }).then(res => {
+      res.data.id = Math.floor(Math.random() * 100000000);
+      if (res.data.title) {
+        this.setState({
+          todos: [...this.state.todos, res.data]
+        })
+      }
+    })
 
   }
 
