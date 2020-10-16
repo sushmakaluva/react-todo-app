@@ -44,7 +44,7 @@ class App extends Component {
       title,
       completed: false
     }).then(res => {
-      res.data.id = Math.floor(Math.random() * 100000000);
+      res.data.id = Math.floor(Math.random() * 100000);
       if (res.data.title) {
         this.setState({
           todos: [...this.state.todos, res.data]
